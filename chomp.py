@@ -1,5 +1,7 @@
 # Example file showing a basic pygame "game loop"
 import pygame
+
+from grenade import Grenade
 from helpers import *
 from fish import Fish
 from boat import Boat
@@ -29,6 +31,10 @@ my_boat = Boat(screen)
 boat_group = pygame.sprite.Group()
 boat_group.add(my_boat)
 
+# make a grendade
+my_grenade = Grenade(screen)
+grenade_group = pygame.sprite.Group()
+grenade_group.add(my_grenade)
 # make fish and add to group
 num_fish = 100
 [fish_group.add(Fish(screen)) for n in range(num_fish) ]
