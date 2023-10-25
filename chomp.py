@@ -52,6 +52,11 @@ while running:
                 my_boat.velocity += 1
             if event.key == pygame.K_LEFT:
                 my_boat.velocity -= 1
+            if event.key == pygame.K_DOWN:
+                if len(grenade_group) < 3:
+                    grenade_group.add(Grenade(my_boat.rect.midbottom))
+            if event.key == pygame.K_SPACE:
+                [g.boom() for g in grenade_group]
 
     # update my fish
     fish_group.update()
@@ -68,6 +73,7 @@ while running:
 
     # draw the boat
     boat_group.draw(screen)
+    grenade_group.draw(screen)
 
     clock.tick(60) # run at 60 FPS
 
